@@ -81,7 +81,7 @@ export default function Testimonials() {
   const next = () => setCurrent((c) => (c + 1) % testimonials.length);
 
   return (
-    <section className="relative py-28 overflow-hidden">
+    <section className="relative py-16 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-mesh" />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] blur-[100px] opacity-10 pointer-events-none"

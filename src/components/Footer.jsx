@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart } from 'lucide-react';
-import { FaWhatsapp, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { navLinks, services } from '../data/siteData';
 
 const socialLinks = [
-  { icon: FaWhatsapp, href: 'https://wa.me/919876543210', color: '#22c55e', label: 'WhatsApp' },
-  { icon: FaInstagram, href: '#', color: '#e1306c', label: 'Instagram' },
+  { icon: FaWhatsapp, href: 'https://wa.me/917631308820', color: '#22c55e', label: 'WhatsApp' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/uminno.tech/', color: '#e1306c', label: 'Instagram' },
+  { icon: FaFacebook, href: '#', color: '#1877f2', label: 'Facebook' },
   { icon: FaLinkedin, href: '#', color: '#0077b5', label: 'LinkedIn' },
-  { icon: FaGithub, href: '#', color: '#e2e8f0', label: 'GitHub' },
 ];
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative pt-16 pb-8 overflow-hidden">
+    <footer id="contact" className="relative pt-16 pb-8 overflow-hidden">
       {/* Top gradient border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
 
@@ -27,7 +27,7 @@ export default function Footer() {
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* CTA Banner */}
+        {/* CTA Banner (Commented out as requested) 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,6 +64,7 @@ export default function Footer() {
             </motion.button>
           </div>
         </motion.div>
+        */}
 
         {/* Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
@@ -137,35 +138,36 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-semibold text-white mb-4 font-display">Get In Touch</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li>
+                <div className="text-slate-400 text-xs mb-1 uppercase tracking-wider font-semibold">Email Address</div>
                 <a
                   href="mailto:uminnodev@gmail.com"
-                  className="text-slate-500 hover:text-indigo-400 text-sm transition-colors duration-200"
+                  className="text-slate-200 hover:text-indigo-400 text-sm font-medium transition-colors duration-200"
                 >
                   uminnodev@gmail.com
                 </a>
               </li>
               <li>
+                <div className="text-slate-400 text-xs mb-1 uppercase tracking-wider font-semibold mt-2">Mobile Number</div>
                 <a
-                  href="tel:+919876543210"
-                  className="text-slate-500 hover:text-indigo-400 text-sm transition-colors duration-200"
+                  href="tel:+917631308820"
+                  className="text-slate-200 hover:text-indigo-400 text-sm font-medium transition-colors duration-200"
                 >
-                  +91 98765 43210
+                  +91 76313 08820
                 </a>
               </li>
-              <li>
+              <li className="pt-2">
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/917631308820"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-emerald-500 hover:text-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm text-emerald-500 hover:text-emerald-400 transition-colors bg-emerald-500/10 hover:bg-emerald-500/20 px-4 py-2 rounded-lg font-medium"
                 >
                   <FaWhatsapp className="w-4 h-4" />
                   WhatsApp Us
                 </a>
               </li>
-              <li className="text-slate-500 text-sm">India (Remote)</li>
             </ul>
           </div>
         </div>

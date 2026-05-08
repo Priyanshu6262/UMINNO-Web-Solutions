@@ -318,11 +318,158 @@ export const stats = [
   { id: 4, value: 2, suffix: '+', label: 'Years Experience' },
 ];
 
-// Nav links
 export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'services', label: 'Services' },
   { id: 'plans', label: 'Plans' },
   { id: 'terms', label: 'Terms & Conditions' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'projects', label: 'Our Projects' },
+];
+
+// Projects data
+export const projectsData = [
+  {
+    id: 1,
+    title: 'Embroidery By Sana',
+    description: 'A premium custom embroidery portfolio and booking platform with an elegant modern design.',
+    image: '/embroidery.png',
+    image2: '/embroidery_2.png',
+    url: 'https://www.embroiderybysana.live/',
+    categories: ['E-Commerce', 'Business'],
+    review: {
+      name: 'Shabnam Nisha',
+      role: 'Founder',
+      text: 'UMINNO perfectly captured the essence of my brand. The website is stunning, fast, and has significantly increased my online bookings. The attention to detail is remarkable!',
+      rating: 5,
+    }
+  },
+  {
+    id: 2,
+    title: 'FootFlex',
+    description: 'A dynamic e-commerce store for footwear, featuring seamless checkout and product filtering.',
+    image: '/footflex.png',
+    image2: '/footflex_2.png',
+    url: '#',
+    categories: ['E-Commerce', 'Business'],
+    review: {
+      name: 'Priyanshu Kumar',
+      role: 'CEO, FootFlex',
+      text: 'The e-commerce platform built by UMINNO is incredible. Our conversion rates went up by 40% in just two months. The user interface is so smooth and modern.',
+      rating: 5,
+    }
+  },
+  {
+    id: 3,
+    title: 'FitClub',
+    description: 'A comprehensive fitness platform for tracking workouts, diets, and gym membership management.',
+    image: '/fitclub.png',
+    image2: '/fitclub_2.png',
+    url: 'https://fitclubwithpriyanshu.pages.dev',
+    categories: ['Web App', 'Fitness'],
+    review: {
+      name: 'Vishal Rajput',
+      role: 'Gym Owner',
+      text: 'FitClub is exactly what we needed. The dashboard makes managing members a breeze, and our clients love the interactive features. Outstanding service!',
+      rating: 5,
+    }
+  },
+  {
+    id: 4,
+    title: 'SHOPPER',
+    description: 'A modern, high-performance shopping application with advanced search and user profiles.',
+    image: '/shopper.png',
+    image2: '/shopper_2.png',
+    url: 'https://ecommerce-42v.pages.dev',
+    categories: ['E-Commerce'],
+    review: {
+      name: 'Harsita Sharma',
+      role: 'Retail Manager',
+      text: 'We are thrilled with the SHOPPER platform. It handles high traffic effortlessly, and the design is top-notch. UMINNO truly delivered beyond expectations.',
+      rating: 5,
+    }
+  },
+  {
+    id: 5,
+    title: 'Future Project',
+    description: 'A revolutionary upcoming project focusing on real-time data analytics and AI integration.',
+    image: '/project-placeholder.png',
+    url: '#',
+    categories: ['Upcoming', 'AI'],
+    review: {
+      name: 'Priya Desai',
+      role: 'Product Lead',
+      text: 'Working with UMINNO has been a game-changer. Their technical expertise and design sensibilities are unmatched in the industry.',
+      rating: 5,
+    }
+  },
+  {
+    id: 6,
+    title: 'Future Project',
+    description: 'An innovative upcoming application aimed at transforming the digital landscape.',
+    image: '/project-placeholder.png',
+    url: '#',
+    categories: ['Upcoming'],
+    review: {
+      name: 'Vikram Patel',
+      role: 'Tech Entrepreneur',
+      text: 'The level of professionalism and quality of work from UMINNO is exceptional. I highly recommend them for any complex web development needs.',
+      rating: 5,
+    }
+  },
+  {
+    id: 7,
+    title: 'Future Project',
+    description: 'A state-of-the-art upcoming platform offering seamless integration and user experience.',
+    image: '/project-placeholder.png',
+    url: '#',
+    categories: ['Upcoming'],
+    review: {
+      name: 'Anjali Verma',
+      role: 'Marketing Director',
+      text: 'UMINNO brought our vision to life with precision and creativity. The final product exceeded all our expectations.',
+      rating: 5,
+    }
+  },
+  {
+    id: 8,
+    title: 'Future Project',
+    description: 'An upcoming cutting-edge solution designed for scalability and performance.',
+    image: '/project-placeholder.png',
+    url: '#',
+    categories: ['Upcoming'],
+    review: {
+      name: 'Rohan Gupta',
+      role: 'Operations Head',
+      text: 'Excellent communication and flawless execution. UMINNO is a reliable partner for any serious tech venture.',
+      rating: 5,
+    }
+  },
+  {
+    id: 9,
+    title: 'Future Project',
+    description: 'An upcoming enterprise-grade platform ensuring robust security and high availability.',
+    image: '/project-placeholder.png',
+    url: '#',
+    categories: ['Upcoming', 'Enterprise'],
+    review: {
+      name: 'Sneha Kapoor',
+      role: 'Chief Strategy Officer',
+      text: 'The team at UMINNO is highly skilled and dedicated. They delivered a highly secure and scalable platform right on schedule.',
+      rating: 5,
+    }
+  },
+  {
+    id: 10,
+    title: 'Future Project',
+    description: 'An upcoming next-generation application redefining user engagement and interactivity.',
+    image: '/project-placeholder.png',
+    url: '#',
+    categories: ['Upcoming'],
+    review: {
+      name: 'Karan Malhotra',
+      role: 'Creative Director',
+      text: 'Absolutely fantastic work! UMINNO combines technical brilliance with an incredible eye for design.',
+      rating: 5,
+    }
+  }
 ];

@@ -101,7 +101,7 @@ export default function Plans() {
   const plans = activeTab === 'web' ? webPlans : androidPlans;
 
   return (
-    <section id="plans" className="relative py-28 overflow-hidden">
+    <section id="plans" className="relative py-16 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-mesh" />
 
       {/* Purple blob */}
@@ -119,10 +119,7 @@ export default function Plans() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-4">
-            <Zap className="w-4 h-4 text-amber-400" />
-            <span className="text-sm text-slate-300 font-medium">Transparent Pricing</span>
-          </div>
+
           <h2 className="section-heading font-display">
             Choose Your <span className="gradient-text">Plan</span>
           </h2>

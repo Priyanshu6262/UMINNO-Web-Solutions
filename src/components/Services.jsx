@@ -19,7 +19,7 @@ export default function Services() {
   const { ref, inView } = useInView({ ...viewportConfig });
 
   return (
-    <section id="services" className="relative py-28 overflow-hidden">
+    <section id="services" className="relative py-16 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-mesh opacity-50" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,10 +31,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-4">
-            <LayoutDashboard className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm text-slate-300 font-medium">What We Offer</span>
-          </div>
+
           <h2 className="section-heading font-display">
             Our <span className="gradient-text">Services</span>
           </h2>

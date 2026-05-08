@@ -9,10 +9,10 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Plans from './components/Plans';
-import Terms from './components/Terms';
+import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
-import Contact from './components/Contact';
+// import Contact from './components/Contact';
 
 // Utility Components
 import Loader from './components/Loader';
@@ -51,10 +51,10 @@ function App() {
             <Hero />
             <Services />
             <Plans />
-            <Terms />
-            <Testimonials />
-            <FAQ />
-            <Contact />
+            <Projects />
+            {/* <Testimonials /> */}
+            {/* <FAQ /> */}
+            {/* <Contact /> */}
           </main>
 
           <Footer />
