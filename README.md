@@ -1,16 +1,21 @@
-# React + Vite
+# UMINNO-Web-Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Business website for UMINNO showcasing modern web application, e-commerce, and Android app development services for shops, startups, and businesses. Focused on creating powerful business web applications and digital solutions using Vite, React, Tailwind CSS, and JavaScript.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Sticky Glassmorphism Navbar**: Responsive with smooth anchor navigation and page scroll indication.
+- **Premium 3D Hero Section**: Features floating badge micro-animations, animated statistics count-up, and an interactive 3D laptop mockup showing a real-time responsive website preview.
+- **Services Grid**: Highlighted with rich icon-based interactive hover effects and grid animations.
+- **Dynamic Pricing Plans**: Tabbed options to easily toggle between Web Applications and Android Apps.
+- **Timeline-based Terms & Conditions**: Clean design depicting client onboarding steps and policies.
+- **Framer Motion Animations**: High-quality startup-style interactive scroll-reveal transitions.
+- **Interactive Contact & FAQs**: Elegant accordion FAQs and a fully validated contact form with real-time feedback.
 
-## React Compiler
+## 💻 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Framework**: React (Vite)
+- **Styling**: Tailwind CSS, Vanilla CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React, React Icons
+- **Responsiveness**: Fully optimized for mobile, tablet, and desktop viewports
