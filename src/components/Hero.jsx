@@ -56,7 +56,7 @@ export default function Hero() {
             <br />
             Web & Android{' '}
             <span style={{ background: 'linear-gradient(135deg,#c4b5fd,#7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', textShadow: '0 0 20px rgba(139,92,246,0.5)' }}>
-              Apps
+              Applications
             </span>
           </motion.h1>
 
@@ -68,7 +68,7 @@ export default function Hero() {
             className="text-gray-200 text-base sm:text-lg md:text-xl mb-8 max-w-2xl leading-relaxed"
             style={{ textShadow: '0 2px 15px rgba(0,0,0,0.8)' }}
           >
-            Professional websites and apps for shops, e-commerce, startups, and businesses. Turning your vision into stunning digital reality.
+            Professional websites and applications for shops, e-commerce, startups, and businesses. Turning your vision into stunning digital reality.
           </motion.p>
 
           {/* Buttons */}

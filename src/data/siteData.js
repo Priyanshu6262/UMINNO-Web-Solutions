@@ -59,7 +59,7 @@ export const webPlans = [
     description: 'Perfect for small businesses and startups',
     badge: null,
     features: [
-      { text: '5 Pages', included: true },
+      { text: 'Up to 5 Pages', included: true },
       { text: '5 Days Delivery', included: true },
       { text: 'Mobile Responsive Design', included: true },
       { text: 'Contact Form', included: true },
@@ -78,7 +78,7 @@ export const webPlans = [
     description: 'Ideal for growing businesses',
     badge: 'Most Popular',
     features: [
-      { text: '10 Pages', included: true },
+      { text: 'Up to 10 Pages', included: true },
       { text: '10 Days Delivery', included: true },
       { text: 'Basic Admin Features', included: true },
       { text: 'Mobile Responsive Design', included: true },
@@ -100,7 +100,7 @@ export const webPlans = [
     description: 'For enterprises & high-end businesses',
     badge: null,
     features: [
-      { text: 'Unlimited Pages', included: true },
+      { text: 'Up to 20 Pages', included: true },
       { text: 'Custom Timeline', included: true },
       { text: 'Full Custom Dashboard', included: true },
       { text: 'Advanced Admin Panel', included: true },
