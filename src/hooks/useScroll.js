@@ -33,7 +33,7 @@ export function useActiveSection() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const sections = ['home', 'services', 'plans', 'terms', 'contact'];
+    const sections = ['home', 'services', 'plans', 'projects', 'terms', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;

@@ -11,7 +11,7 @@ const iconMap = {
 
 export default function Terms() {
   return (
-    <section id="terms" className="relative py-16 md:py-20 overflow-hidden">
+    <section id="terms" className="relative pt-8 pb-16 md:pt-12 md:pb-20 overflow-hidden">
       <div className="absolute inset-0 bg-mesh" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,10 +23,7 @@ export default function Terms() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-4">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span className="text-sm text-slate-300 font-medium">Terms & Conditions</span>
-          </div>
+
           <h2 className="section-heading font-display">
             Our <span className="gradient-text">Policies</span>
           </h2>

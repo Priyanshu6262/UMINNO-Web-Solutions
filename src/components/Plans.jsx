@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, Globe, Smartphone, Zap, Star } from 'lucide-react';
+import { Check, Star, ArrowRight, Globe, Smartphone } from 'lucide-react';
 import { webPlans, androidPlans } from '../data/siteData';
 import { staggerContainer, staggerItem, viewportConfig } from '../animations/variants';
 
@@ -10,86 +10,89 @@ function PlanCard({ plan, index }) {
   return (
     <motion.div
       variants={staggerItem}
-      whileHover={{ y: -8, scale: 1.02 }}
-      className={`relative rounded-2xl p-6 flex flex-col transition-all duration-300 ${
+      whileHover={{ y: -12, scale: 1.02 }}
+      className={`relative rounded-3xl p-6 flex flex-col transition-all duration-500 ${
         isPopular
-          ? 'border border-indigo-500/50 shadow-glow-lg'
-          : 'border border-white/6 hover:border-indigo-500/30'
+          ? 'border border-indigo-500/50 shadow-[0_0_40px_rgba(99,102,241,0.25)]'
+          : 'border border-white/10 hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]'
       }`}
       style={{
         background: isPopular
-          ? 'linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08))'
-          : 'rgba(255,255,255,0.03)',
-        backdropFilter: 'blur(16px)',
-        boxShadow: isPopular ? `0 20px 60px ${plan.glow}` : undefined,
+          ? 'linear-gradient(135deg, rgba(30,27,75,0.4), rgba(49,46,129,0.3))'
+          : 'rgba(15,23,42,0.4)',
+        backdropFilter: 'blur(20px)',
       }}
     >
+      {/* Background Glow */}
+      {isPopular && (
+        <div 
+          className="absolute inset-0 rounded-3xl opacity-20 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at 50% 0%, ${plan.glow}, transparent 70%)`
+          }}
+        />
+      )}
+
       {/* Badge */}
       {plan.badge && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <div
-            className={`inline-flex items-center gap-1 px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-lg bg-gradient-to-r ${plan.color}`}
-          >
-            <Star className="w-3 h-3 fill-white" />
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <div className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-[0_0_20px_rgba(99,102,241,0.5)] bg-gradient-to-r ${plan.color}`}>
+            <Star className="w-3.5 h-3.5 fill-white" />
             {plan.badge}
           </div>
         </div>
       )}
 
       {/* Header */}
-      <div className="mb-6">
-        <h3 className="text-xl font-bold text-white font-display">{plan.name}</h3>
-        <p className="text-slate-400 text-sm mt-1">{plan.description}</p>
-        <div className="mt-4">
-          <span
-            className={`text-4xl font-black font-display bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`}
-          >
+      <div className="mb-6 relative z-10 text-center pb-6 border-b border-white/5">
+        <h3 className="text-xl font-bold text-white font-display mb-1.5">{plan.name}</h3>
+        <p className="text-slate-400 text-xs mb-5 h-8">{plan.description}</p>
+        <div className="flex justify-center items-end gap-1">
+          <span className={`text-4xl font-black font-display bg-gradient-to-r ${plan.color} bg-clip-text text-transparent drop-shadow-sm`}>
             {plan.price}
           </span>
-          <span className="text-slate-500 text-sm ml-1">/ project</span>
         </div>
       </div>
 
       {/* Features */}
-      <ul className="space-y-3 mb-8 flex-1">
+      <ul className="space-y-3 mb-8 flex-1 relative z-10">
         {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-center gap-3">
-            <div
-              className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                feature.included
-                  ? `bg-gradient-to-br ${plan.color}`
-                  : 'bg-white/5'
-              }`}
-            >
-              {feature.included ? (
-                <Check className="w-3 h-3 text-white" />
-              ) : (
-                <X className="w-3 h-3 text-slate-600" />
-              )}
+          <motion.li 
+            key={i} 
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 * i }}
+            className="flex items-start gap-3"
+          >
+            <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md ${
+              feature.included
+                ? `bg-gradient-to-br ${plan.color}`
+                : 'bg-white/5 border border-white/10'
+            }`}>
+              <Check className={`w-3 h-3 ${feature.included ? 'text-white' : 'opacity-0'}`} />
             </div>
-            <span
-              className={`text-sm ${
-                feature.included ? 'text-slate-200' : 'text-slate-600 line-through'
-              }`}
-            >
+            <span className={`text-[13px] leading-relaxed ${
+              feature.included ? 'text-slate-200' : 'text-slate-600'
+            }`}>
               {feature.text}
             </span>
-          </li>
+          </motion.li>
         ))}
       </ul>
 
       {/* CTA */}
       <motion.button
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-        className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+        className={`relative z-10 w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group ${
           isPopular
-            ? `bg-gradient-to-r ${plan.color} text-white shadow-lg hover:shadow-glow-lg`
-            : 'border border-white/10 text-slate-300 hover:bg-white/5 hover:border-indigo-500/40'
+            ? `bg-gradient-to-r ${plan.color} text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]`
+            : 'glass border border-white/10 text-white hover:bg-white/10'
         }`}
       >
-        {isPopular ? '⚡ Get Started Now' : 'Buy Now'}
+        Get Started
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </motion.button>
     </motion.div>
   );
@@ -97,18 +100,17 @@ function PlanCard({ plan, index }) {
 
 export default function Plans() {
   const [activeTab, setActiveTab] = useState('web');
-
   const plans = activeTab === 'web' ? webPlans : androidPlans;
 
   return (
-    <section id="plans" className="relative py-16 md:py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-mesh" />
-
-      {/* Purple blob */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] blur-[120px] opacity-15 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, #6366f1, #8b5cf6)' }}
-      />
+    <section id="plans" className="relative pt-4 pb-12 md:pt-8 md:pb-16 overflow-hidden">
+      {/* Dynamic Backgrounds */}
+      <div className="absolute inset-0 bg-slate-950" />
+      <div className="absolute inset-0 bg-mesh opacity-40" />
+      
+      {/* Animated Light Blobs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen pointer-events-none animate-pulse" style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen pointer-events-none animate-pulse" style={{ animationDuration: '6s' }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -117,14 +119,13 @@ export default function Plans() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-14"
         >
-
-          <h2 className="section-heading font-display">
-            Choose Your <span className="gradient-text">Plan</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
+            {activeTab === 'web' ? 'Website Development' : 'Android App Development'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 drop-shadow-sm">Plans</span>
           </h2>
-          <p className="section-subheading">
-            Flexible pricing designed to match your business needs. No hidden fees, no surprises.
+          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Professional {activeTab === 'web' ? 'websites' : 'applications'} for businesses, shops, startups, and brands.
           </p>
         </motion.div>
 
@@ -134,9 +135,9 @@ export default function Plans() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex justify-center mb-14"
+          className="flex justify-center mb-10"
         >
-          <div className="glass rounded-2xl p-1.5 flex gap-1">
+          <div className="glass rounded-2xl p-1.5 flex gap-1 border border-white/5 shadow-lg">
             {[
               { key: 'web', label: 'Web Application', icon: Globe },
               { key: 'android', label: 'Android App', icon: Smartphone },
@@ -144,15 +145,15 @@ export default function Plans() {
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`relative flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                className={`relative flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
                   activeTab === key ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {activeTab === key && (
                   <motion.div
-                    layoutId="tab-bg"
-                    className="absolute inset-0 rounded-xl"
-                    style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
+                    layoutId="tab-bg-plans"
+                    className="absolute inset-0 rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.3)]"
+                    style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.8), rgba(139,92,246,0.8))' }}
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -178,7 +179,7 @@ export default function Plans() {
               variants={staggerContainer}
               initial="initial"
               animate="animate"
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch"
             >
               {plans.map((plan, index) => (
                 <PlanCard key={plan.id} plan={plan} index={index} />
@@ -187,23 +188,29 @@ export default function Plans() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Bottom note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Bottom Contact Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
-          transition={{ delay: 0.5 }}
-          className="text-center text-slate-500 text-sm mt-10"
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="mt-20 text-center"
         >
-          💬 Need a custom solution?{' '}
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2"
-          >
-            Contact us
-          </button>{' '}
-          for a personalized quote.
-        </motion.p>
+          <div className="inline-block glass rounded-2xl p-6 md:p-8 border border-white/5 shadow-2xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <p className="text-slate-300 relative z-10 flex flex-col md:flex-row items-center gap-2 md:gap-3 text-lg">
+              <span className="text-2xl">💡</span>
+              Need a completely custom enterprise solution?
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 hover:from-indigo-300 hover:to-purple-300 flex items-center gap-1 group/btn ml-1"
+              >
+                Let's talk
+                <ArrowRight className="w-4 h-4 text-purple-400 group-hover/btn:translate-x-1 transition-transform" />
+              </button>
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

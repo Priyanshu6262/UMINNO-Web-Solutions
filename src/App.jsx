@@ -10,8 +10,8 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import Plans from './components/Plans';
 import Projects from './components/Projects';
+import Terms from './components/Terms';
 import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
 // import Contact from './components/Contact';
 
 // Utility Components
@@ -31,7 +31,7 @@ function App() {
       const timer = setTimeout(() => {
         setLoading(false);
         sessionStorage.setItem('uminno_visited', 'true');
-      }, 2500);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -52,6 +52,7 @@ function App() {
             <Services />
             <Plans />
             <Projects />
+            <Terms />
             {/* <Testimonials /> */}
             {/* <FAQ /> */}
             {/* <Contact /> */}
