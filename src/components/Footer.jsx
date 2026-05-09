@@ -107,9 +107,9 @@ export default function Footer() {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-slate-500 hover:text-indigo-400 text-sm transition-colors duration-200 flex items-center gap-1.5 group"
+                    className="text-slate-500 hover:text-indigo-400 text-sm transition-colors duration-200 flex items-center group relative"
                   >
-                    <span className="w-1 h-1 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="absolute -left-4 w-1.5 h-1.5 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
                   </button>
                 </li>
@@ -125,9 +125,9 @@ export default function Footer() {
                 <li key={service.id}>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="text-slate-500 hover:text-indigo-400 text-sm transition-colors duration-200 flex items-center gap-1.5 group text-left"
+                    className="text-slate-500 hover:text-indigo-400 text-sm transition-colors duration-200 flex items-center group text-left relative"
                   >
-                    <span className="w-1 h-1 rounded-full bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="absolute -left-4 w-1.5 h-1.5 rounded-full bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {service.title}
                   </button>
                 </li>
@@ -142,10 +142,10 @@ export default function Footer() {
               <li>
                 <div className="text-slate-400 text-xs mb-1 uppercase tracking-wider font-semibold">Email Address</div>
                 <a
-                  href="mailto:uminnodev@gmail.com"
+                  href="mailto:uminno@hotmail.com"
                   className="text-slate-200 hover:text-indigo-400 text-sm font-medium transition-colors duration-200"
                 >
-                  uminnodev@gmail.com
+                  uminno@hotmail.com
                 </a>
               </li>
               <li>

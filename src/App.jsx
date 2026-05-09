@@ -12,7 +12,7 @@ import Plans from './components/Plans';
 import Projects from './components/Projects';
 import Terms from './components/Terms';
 import Testimonials from './components/Testimonials';
-// import Contact from './components/Contact';
+import Contact from './components/Contact';
 
 // Utility Components
 import Loader from './components/Loader';
@@ -55,7 +55,7 @@ function App() {
             <Terms />
             {/* <Testimonials /> */}
             {/* <FAQ /> */}
-            {/* <Contact /> */}
+            <Contact />
           </main>
 
           <Footer />

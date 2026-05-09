@@ -324,6 +324,7 @@ export const navLinks = [
   { id: 'plans', label: 'Plans' },
   { id: 'projects', label: 'Our Projects' },
   { id: 'terms', label: 'Terms & Conditions' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 // Projects data
