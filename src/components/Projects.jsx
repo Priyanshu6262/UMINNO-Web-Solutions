@@ -96,10 +96,18 @@ export default function Projects() {
                 }
               }}
               animate={{ x: `-${currentIndex * 100}%` }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               {projectsData.map((project, index) => (
-                <div key={project.id} className="w-full flex-shrink-0 flex flex-col md:flex-row">
+                <motion.div 
+                  key={project.id} 
+                  className="w-full flex-shrink-0 flex flex-col md:flex-row"
+                  animate={{ 
+                    opacity: currentIndex === index ? 1 : 0.3,
+                    scale: currentIndex === index ? 1 : 0.95 
+                  }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                >
                   {/* Image Side */}
                   <div className="w-full md:w-1/2 relative min-h-[300px] md:min-h-[400px] max-h-[400px] md:max-h-[600px] group overflow-y-auto overflow-x-hidden bg-slate-900/40 backdrop-blur-sm rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none flex flex-col items-center gap-[1px] p-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <div className="absolute inset-0 bg-slate-800 animate-pulse -z-10" /> {/* Skeleton */}
@@ -169,7 +177,7 @@ export default function Projects() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
@@ -189,17 +197,21 @@ export default function Projects() {
           </button>
 
           {/* Bullet Indicators */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-4 mt-8 items-center">
             {projectsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-full ${currentIndex === index
-                    ? 'w-8 h-2 bg-gradient-to-r from-purple-500 to-blue-500'
-                    : 'w-2 h-2 bg-white/20 hover:bg-white/40'
-                  }`}
+                className="relative w-3 h-3 rounded-full overflow-hidden"
                 aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                <div className="absolute inset-0 bg-white/20 transition-colors hover:bg-white/40" />
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 transition-opacity duration-500 ${
+                    currentIndex === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

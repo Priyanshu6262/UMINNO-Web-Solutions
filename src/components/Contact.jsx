@@ -284,6 +284,8 @@ export default function Contact() {
                           value={form.email}
                           onChange={handleChange}
                           required
+                          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+                          title="Please enter a valid email address."
                           placeholder="john@example.com"
                           className="w-full bg-slate-950/50 border border-white/10 rounded-xl pl-12 pr-4 py-3.5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50 transition-all duration-300 shadow-inner hover:border-white/20"
                         />
@@ -299,7 +301,9 @@ export default function Contact() {
                           value={form.phone}
                           onChange={handleChange}
                           required
-                          placeholder="+1 (555) 000-0000"
+                          pattern="^(\+91[\-\s]?)?[0]?[6-9]([\-\s]?\d){9}$"
+                          title="Please enter a valid Indian mobile number (e.g., +91 9876543210)"
+                          placeholder="+91 98765 43210"
                           className="w-full bg-slate-950/50 border border-white/10 rounded-xl pl-12 pr-4 py-3.5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50 transition-all duration-300 shadow-inner hover:border-white/20"
                         />
                       </div>
