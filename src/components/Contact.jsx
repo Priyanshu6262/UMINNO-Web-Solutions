@@ -16,15 +16,15 @@ const contactInfo = [
   {
     icon: FaWhatsapp,
     label: 'WhatsApp',
-    value: '+91 98765 43210',
-    href: 'https://wa.me/919876543210',
+    value: '+91 76313 08820',
+    href: 'https://wa.me/917631308820',
     color: 'from-emerald-500 to-teal-600',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+91 98765 43210',
-    href: 'tel:+919876543210',
+    value: '+91 76313 08820',
+    href: 'tel:+917631308820',
     color: 'from-blue-500 to-cyan-600',
   },
   {
@@ -302,8 +302,8 @@ export default function Contact() {
                           onChange={handleChange}
                           required
                           pattern="^(\+91[\-\s]?)?[0]?[6-9]([\-\s]?\d){9}$"
-                          title="Please enter a valid Indian mobile number (e.g., +91 9876543210)"
-                          placeholder="+91 98765 43210"
+                          title="Please enter a valid Indian mobile number (e.g., +91 7631308820)"
+                          placeholder="+91 76313 08820"
                           className="w-full bg-slate-950/50 border border-white/10 rounded-xl pl-12 pr-4 py-3.5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50 transition-all duration-300 shadow-inner hover:border-white/20"
                         />
                       </div>
