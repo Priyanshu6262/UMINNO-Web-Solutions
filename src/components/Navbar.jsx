@@ -9,7 +9,7 @@ const socialLinks = [
   { icon: FaWhatsapp, href: 'https://wa.me/917631308820', label: 'WhatsApp' },
   { icon: FaInstagram, href: 'https://www.instagram.com/uminno.tech/', label: 'Instagram' },
   { icon: FaFacebook, href: '#', label: 'Facebook' },
-  { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/company/uminno/', label: 'LinkedIn' },
 ];
 
 export default function Navbar() {

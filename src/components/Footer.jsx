@@ -7,7 +7,7 @@ const socialLinks = [
   { icon: FaWhatsapp, href: 'https://wa.me/917631308820', color: '#22c55e', label: 'WhatsApp' },
   { icon: FaInstagram, href: 'https://www.instagram.com/uminno.tech/', color: '#e1306c', label: 'Instagram' },
   { icon: FaFacebook, href: '#', color: '#1877f2', label: 'Facebook' },
-  { icon: FaLinkedin, href: '#', color: '#0077b5', label: 'LinkedIn' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/company/uminno/', color: '#0077b5', label: 'LinkedIn' },
 ];
 
 export default function Footer() {
