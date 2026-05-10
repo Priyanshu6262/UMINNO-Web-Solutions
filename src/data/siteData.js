@@ -350,7 +350,7 @@ export const projectsData = [
     description: 'A dynamic e-commerce store for footwear, featuring seamless checkout and product filtering.',
     image: '/footflex.png',
     image2: '/footflex_2.png',
-    url: '#',
+    url: 'https://foo-flex-frontend.vercel.app',
     categories: ['E-Commerce', 'Business'],
     review: {
       name: 'Priyanshu Kumar',
