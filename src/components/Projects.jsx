@@ -230,30 +230,33 @@ export default function Projects() {
       {/* Review Modal */}
       <AnimatePresence>
         {selectedReview && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedReview(null)}
-              className="fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ opacity: 0, y: "100%" }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              drag="y"
-              dragConstraints={{ top: 0, bottom: 0 }}
-              dragElastic={0.2}
-              onDragEnd={(e, { offset, velocity }) => {
-                if (offset.y > 100 || velocity.y > 500) {
-                  setSelectedReview(null);
-                }
-              }}
-              className="fixed left-0 right-0 bottom-0 md:bottom-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:w-[90%] md:max-w-lg z-[101] flex flex-col justify-end md:justify-center h-full md:h-auto pointer-events-none"
-            >
-              <div className="glass-dark md:border border-white/10 rounded-t-3xl md:rounded-2xl p-6 md:p-8 relative shadow-[0_-10px_40px_rgba(139,92,246,0.15)] md:shadow-[0_0_40px_rgba(139,92,246,0.15)] pointer-events-auto max-h-[85vh] flex flex-col">
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
+            onClick={() => setSelectedReview(null)}
+            className="fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm"
+          />
+        )}
+        {selectedReview && (
+          <motion.div
+            key="modal"
+            initial={{ opacity: 0, y: "100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "100%", transition: { duration: 0.3, ease: "easeInOut" } }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset, velocity }) => {
+              if (offset.y > 100 || velocity.y > 500) {
+                setSelectedReview(null);
+              }
+            }}
+            className="fixed left-0 right-0 bottom-0 md:bottom-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:w-[90%] md:max-w-lg z-[101] flex flex-col justify-end md:justify-center h-full md:h-auto pointer-events-none"
+          >
+            <div className="glass-dark md:border border-white/10 rounded-t-3xl md:rounded-2xl p-6 md:p-8 relative shadow-[0_-10px_40px_rgba(139,92,246,0.15)] md:shadow-[0_0_40px_rgba(139,92,246,0.15)] pointer-events-auto max-h-[85vh] flex flex-col">
                 {/* Mobile Drag Handle */}
                 <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 md:hidden" />
 
@@ -317,7 +320,6 @@ export default function Projects() {
                 </div>
               </div>
             </motion.div>
-          </>
         )}
       </AnimatePresence>
     </section>
