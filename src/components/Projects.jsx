@@ -113,7 +113,12 @@ export default function Projects() {
                     <div className="absolute inset-0 bg-slate-800 animate-pulse -z-10" /> {/* Skeleton */}
                     
                     {/* First Image */}
-                    <div className="relative w-full rounded-xl overflow-hidden shadow-2xl bg-slate-900/50 group/img1 border border-white/5">
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block cursor-pointer relative w-full rounded-xl overflow-hidden shadow-2xl bg-slate-900/50 group/img1 border border-white/5"
+                    >
                       <img
                         src={project.image}
                         alt={project.title}
@@ -123,11 +128,16 @@ export default function Projects() {
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/img1:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                    </div>
+                    </a>
 
                     {/* Second Image (Conditional) */}
                     {project.image2 && (
-                      <div className="relative w-full rounded-xl overflow-hidden shadow-2xl bg-slate-900/50 group/img2 border border-white/5">
+                      <a 
+                        href={project.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block cursor-pointer relative w-full rounded-xl overflow-hidden shadow-2xl bg-slate-900/50 group/img2 border border-white/5 mt-1"
+                      >
                         <img
                           src={project.image2}
                           alt={`${project.title} secondary preview`}
@@ -137,7 +147,7 @@ export default function Projects() {
                           }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/img2:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                      </div>
+                      </a>
                     )}
                   </div>
 
@@ -169,7 +179,7 @@ export default function Projects() {
                         Live URL
                       </a>
                       <button
-                        onClick={() => setSelectedReview(project.review)}
+                        onClick={() => setSelectedReview(project)}
                         className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 hover:bg-white/10 text-white font-medium transition-all duration-300"
                       >
                         <MessageSquare className="w-4 h-4 text-blue-400" />
@@ -229,56 +239,82 @@ export default function Projects() {
               className="fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg z-[101]"
+              initial={{ opacity: 0, y: "100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(e, { offset, velocity }) => {
+                if (offset.y > 100 || velocity.y > 500) {
+                  setSelectedReview(null);
+                }
+              }}
+              className="fixed left-0 right-0 bottom-0 md:bottom-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:w-[90%] md:max-w-lg z-[101] flex flex-col justify-end md:justify-center h-full md:h-auto pointer-events-none"
             >
-              <div className="glass-dark border border-white/10 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_40px_rgba(139,92,246,0.15)]">
+              <div className="glass-dark md:border border-white/10 rounded-t-3xl md:rounded-2xl p-6 md:p-8 relative shadow-[0_-10px_40px_rgba(139,92,246,0.15)] md:shadow-[0_0_40px_rgba(139,92,246,0.15)] pointer-events-auto max-h-[85vh] flex flex-col">
+                {/* Mobile Drag Handle */}
+                <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 md:hidden" />
+
                 {/* Decorative gradients */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500" />
-                <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/20 rounded-full blur-[40px]" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-t-3xl md:rounded-t-2xl" />
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/20 rounded-full blur-[40px] pointer-events-none" />
 
                 <button
                   onClick={() => setSelectedReview(null)}
-                  className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"
+                  className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors hidden md:block"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-xl font-bold text-white shadow-lg">
-                    {getInitials(selectedReview.name)}
+                <div className="flex-shrink-0">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-xl font-bold text-white shadow-lg flex-shrink-0">
+                      {getInitials(selectedReview.review.name)}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-white">{selectedReview.review.name}</h4>
+                      <p className="text-slate-400 text-sm">{selectedReview.review.role}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-white">{selectedReview.name}</h4>
-                    <p className="text-slate-400 text-sm">{selectedReview.role}</p>
+
+                  <div className="flex flex-wrap items-center gap-3 mb-6">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: i * 0.1, type: "spring" }}
+                        >
+                          <Star
+                            className={`w-4 h-4 md:w-5 md:h-5 ${i < selectedReview.review.rating ? 'text-amber-400 fill-amber-400' : 'text-slate-600'}`}
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                    <span className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
+                    <div className="flex gap-2 flex-wrap">
+                      {selectedReview.categories.map((cat, i) => (
+                        <span key={i} className="px-2.5 py-0.5 text-xs font-medium bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-300">
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.1, type: "spring" }}
-                    >
-                      <Star
-                        className={`w-5 h-5 ${i < selectedReview.rating ? 'text-amber-400 fill-amber-400' : 'text-slate-600'}`}
-                      />
-                    </motion.div>
-                  ))}
+                <div className="overflow-y-auto overscroll-contain pr-2 -mr-2 custom-scrollbar flex-grow">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-slate-300 text-base md:text-lg leading-relaxed italic pb-4"
+                  >
+                    "{selectedReview.review.text}"
+                  </motion.p>
                 </div>
-
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-slate-300 text-lg leading-relaxed italic"
-                >
-                  "{selectedReview.text}"
-                </motion.p>
               </div>
             </motion.div>
           </>
