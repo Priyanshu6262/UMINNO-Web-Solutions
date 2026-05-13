@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden flex items-center mt-20 lg:mt-[90px]"
+      className="relative w-full overflow-hidden flex items-start md:items-center mt-20 lg:mt-[90px] pt-4 md:pt-0"
       style={{ minHeight: 'calc(100vh - 90px)' }}
     >
       {/* Background Image Container with Zoom Animation */}
@@ -34,11 +34,11 @@ export default function Hero() {
         initial={{ scale: 1.15 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="absolute inset-0 bg-[url('/hero_bg.png')] bg-cover bg-center bg-no-repeat -z-10"
+        className="absolute inset-0 bg-[url('/mobile_hero.png')] md:bg-[url('/hero_bg.png')] bg-cover bg-bottom md:bg-center bg-no-repeat -z-10"
       />
 
-      {/* Content Container - Aligned Left */}
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-10 md:py-16">
+      {/* Content Container - Aligned Left/Top on Mobile */}
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-64 md:py-16">
         <div className="relative z-10 w-full md:w-3/4 lg:w-[70%] xl:w-[60%] text-left">
 
           {/* Main Heading (Fade-in) */}
@@ -102,7 +102,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.7 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
+            className="hidden md:grid md:grid-cols-4 gap-3 sm:gap-4"
           >
             {stats.map((stat, i) => {
               const Icon = statIcons[i];
