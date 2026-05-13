@@ -34,11 +34,11 @@ export default function Hero() {
         initial={{ scale: 1.15 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="absolute inset-0 bg-[url('/mobile_hero.png')] md:bg-[url('/hero_bg.png')] bg-cover bg-bottom md:bg-center bg-no-repeat -z-10"
+        className="absolute inset-0 bg-[url('/mobile_hero.png')] md:bg-[url('/hero_bg.png')] bg-[length:100%_auto] md:bg-cover bg-bottom md:bg-center bg-no-repeat -z-10"
       />
 
       {/* Content Container - Aligned Left/Top on Mobile */}
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-64 md:py-16">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-32 md:py-16">
         <div className="relative z-10 w-full md:w-3/4 lg:w-[70%] xl:w-[60%] text-left">
 
           {/* Main Heading (Fade-in) */}
