@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden flex items-start md:items-center mt-20 lg:mt-[90px] pt-4 md:pt-0"
+      className="relative w-full overflow-hidden flex items-start md:items-center mt-20 lg:mt-[90px] pt-0 md:pt-0"
       style={{ minHeight: 'calc(100vh - 90px)' }}
     >
       {/* Background Image Container with Zoom Animation */}
@@ -38,7 +38,7 @@ export default function Hero() {
       />
 
       {/* Content Container - Aligned Left/Top on Mobile */}
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-32 md:py-16">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-2 pb-32 md:py-16">
         <div className="relative z-10 w-full md:w-3/4 lg:w-[70%] xl:w-[60%] text-left">
 
           {/* Main Heading (Fade-in) */}
