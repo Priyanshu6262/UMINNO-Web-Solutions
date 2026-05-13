@@ -76,13 +76,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto"
+            className="flex flex-row gap-3 sm:gap-4 mb-10 w-full sm:w-auto"
           >
             <motion.button
               onClick={() => scrollTo('plans')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-600 shadow-lg shadow-violet-500/30 transition-all duration-500 text-[15px] flex items-center justify-center"
+              className="flex-1 sm:flex-none sm:w-auto px-4 sm:px-8 py-3.5 rounded-full font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-600 shadow-lg shadow-violet-500/30 transition-all duration-500 text-sm sm:text-[15px] flex items-center justify-center whitespace-nowrap"
             >
               View Plans
             </motion.button>
@@ -91,7 +91,7 @@ export default function Hero() {
               onClick={() => scrollTo('contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-white bg-transparent border border-white/40 hover:bg-white/10 hover:border-white transition-all duration-500 text-[15px] flex items-center justify-center backdrop-blur-sm"
+              className="flex-1 sm:flex-none sm:w-auto px-4 sm:px-8 py-3.5 rounded-full font-bold text-white bg-transparent border border-white/40 hover:bg-white/10 hover:border-white transition-all duration-500 text-sm sm:text-[15px] flex items-center justify-center backdrop-blur-sm whitespace-nowrap"
             >
               Contact Us
             </motion.button>
